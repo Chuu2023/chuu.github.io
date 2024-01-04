@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>2023.8.25 | Chuu&#39;s Blog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="Chuu&#39;s Blog" type="application/atom+xml">
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/" class="header__link">Home</a>
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/categories" class="header__link">Category</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/about" class="header__link">About</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Chuu&#39;s Blog</a></h1>
+		<h2 class="header__subtitle">“那不是我的月亮，但有一刻月光确实照在了我的身上。”</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>2023.8.25</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2023-08-25</span><br />
+		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/%EF%BC%88%E4%BA%89%E5%8F%96%EF%BC%89%E6%AF%8F%E6%97%A5%E4%B8%80%E8%81%8A/">（争取）每日一聊</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-none-link" href="/tags/%EF%BC%88%E5%81%8F%EF%BC%89%E7%A7%91%E7%A0%94/" rel="tag">（偏）科研</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p>  今天想写一些比较底层的东西。<span id="more"></span>今天写的东西不正确的概率比以往的大一些。</p>
+<ul>
+<li>Complexity class（与密码学有关的）
+<ul>
+<li>language是字符串的集合。class是一堆decision problems（好像也可以说是一些decision problems的集合），这些decision problem是指，给定一个字符串和一个language，判断该字符串是否属于该language。P, NP, BPP之类的class是在把decision problems分类。</li>
+<li>deterministic, non-deterministic, probabilistic, polynomial-time, super-polynomial-time是对decision problems的描述词。关于deterministic, non-deterministic, probabilistic，（我）似乎找到了一个很好的介绍<a target="_blank" rel="noopener" href="https://cs.stackexchange.com/questions/110497/non-deterministic-turing-machine-vs-probabilistic-turing-machine-vs-deterministi">https://cs.stackexchange.com/questions/110497/non-deterministic-turing-machine-vs-probabilistic-turing-machine-vs-deterministi</a> 。反正non-deterministic和probabilistic是有点区别的，具体区别这个介绍中写了，但总感觉没太理解明白。</li>
+<li>关于P和NP是否相等：NP问题是指可以被non-deterministic polynomial-time Turing machine解决的问题，那么这个对于NP问题的定义范围是否“大”了呢（可能是类似于，先给NP问题的定义找到了一个“上/下界”，但是“上/下确界”是多少还没确定）？是否可以进一步缩小为被deterministic polynomial-time Turing machine解决的问题（寻找“上/下确界”）？如果可以，那么P=NP，否则，P<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo mathvariant="normal">≠</mo></mrow><annotation encoding="application/x-tex">\neq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span></span></span></span>NP（没显示出来的符号是不等于号）。</li>
+</ul>
+</li>
+<li>关于oracle这个东西
+<ul>
+<li>首先我觉得要区分一下<i>oracle machine</i>和<i>oracle</i>（就是说，这俩不是一个东西），因为我一开始看定义的时候就把oracle machine当作了oracle，导致我一直不敢确定oracle到底是不是个black box。oracle（还是加个应该吧）是个black-box，具体依据为&quot;An oracle can thus simply be regarded as a black box with a specified functionality that the Turing machine can make use of.&quot; from <u>The Theory Of Hash Functions And Random Oracle</u>.</li>
+<li>oracle machine是一个Turing machine given access to some functionality O (oracle) but where the internals of oracle O are of no particular importance.（根据<u>The Theory Of Hash Functions And Random Oracle</u>上的某些句子改编的） oracle machine 还可以被看作an extension to  the interactive Turing machine model. ABE方案（举例ABE是因为我可能对这个primitive比较熟悉，好像其实可以扩展到一般公钥方案，或者可以更广？）证明中经常出现的challenger/simulator就可以被看作为一个oracle machine，其连接的oracle是adversary。我觉得oracle machine定义的集合应该是包含interactive Turing machine定义的集合的，这句话的重点在于，oracle machine中的oracle不一定可以被Turing machine实现（但感觉应该是可实现的，至少可以被a family of circuits实现。不过我目前没找到可以佐证“oracle是可实现的”这一观点的信息）。</li>
+<li>关于challenger/simulator的效率 (efficiency)，详见<u>The Theory Of Hash Functions And Random Oracle</u>第十九页第二段给出的&quot;challenger/simulator&quot;和&quot;adversary&quot;都是polynomial-time的分析。在密码学中有时候会看到super (quasi)-polynomial-time challenger/simulator，或许上述段落可以用来参考。这里，（我）还是先浅浅地思考一下整个过程：
+<ul>
+<li>首先，我觉得这个过程和oracle machine的过程有点不一样。oracle machine的运行时间并不考虑oracle的运行时间（忽略调用oracle的时间），但是这里是把oracle以算法方式实现了的，并且把这个算法作为一个subroutine（其实并不是很清楚subroutine是什么意思，凭感觉理解的）。这是因为这里把challenger/simulator当作为对于底层假设的adversary。所以，这里考虑challenger/simulator的运行时间的时候，是要把方案的adversary (oracle) 的运行时间考虑进去的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关于公钥密码中的归约
+<ul>
+<li>一个值得注意的点是，当我们说某个方案的安全性基于什么什么假设时，我们用的是“基于 (based on/relying on)”这个假设，而不是“归约到 (reduced to)”这个假设。因为用“归约到”应该是不对的（我觉得）。考虑证明方案安全性的逻辑：如果敌手能攻破这个方案，那么另一个敌手可以利用这个敌手攻破底层假设。In other words, 如果存在能攻破这个方案的算法，那么存在能攻破底层假设的算法。这说明可以reduce 底层假设 to 方案（总感觉我的写法有些不严谨，这中间应该有很多小细节要推一下），所以，“归约到 (reduced to)”的应该是方案，而不是假设。<code>注释</code>：recall that 之前我乱写（不必真的recall，写得很烂）过一个关于black-box constuctions的post，里面有一句来自论文里的陈述是&quot;the reduction from the onewayness to the security of the underlying primitive&quot;。这就有点匪夷所思了，这个为什么是反过来的？但是我反复看了几遍，我觉得还是应该reduce the underlying primitive/assumption to 方案。难道是因为这个陈述reduce的是“安全性”？还有，black-box constructions是针对两个primitives的，不是一个assumption一个primitive（感觉这俩应该是有点区别的）。</li>
+<li><u>Foundations of cryptography：Basic Tools</u>第十九页的1.3.4 Intractability Assumptions的第一段中写道&quot;We shall consider as intractable those tasks that cannot be performed by probabilistic polynomial-time machines. However, the adversarial tasks in which we shall be interested (“breaking an encryption scheme,” “forging signatures,” etc.) can be performed by non-deterministic polynomial-time machines (because the solutions, once found, can be easily tested for validity).&quot; 这里，我觉得&quot;adversarial tasks&quot;对应NP问题（不太清楚的小细节，比如，所有的task都是decision problems吗？每个decision problem中的language具体是什么？这里，我把&quot;adversarial tasks&quot;对应为NP问题是根据书上后面的句子[当然有可能我理解错了]），然后&quot;intractable tasks&quot;就是tasks that cannot be performed by probabilistic polynomial-time machines. 不过&quot;intractable tasks&quot;首先可以被排除在BPP问题外面（因为我觉得BPP问题应该是属于能在probabilistic polynomial-time内被解决的问题的），然后根据1.3.4 Intractability Assumptions的第二段，有，如果对于&quot;adversarial tasks&quot;有解，那么对于&quot;intractable tasks&quot;有解，因为“有解” 的前提是问题存在，那么根据上面的分析，可以推出，这个&quot;intractable tasks&quot;是在NP\BPP中（因此NP\BPP非空）。</li>
+</ul>
+</li>
+</ul>
+<p>  剩下的明天再写吧。回学校的坏处之一就是零点之后写东西并不是很方便，因为阿姨要锁门。<br />
+　　啊，今天是有件大事发生，big thanks to my 导师（凑合看的英语）! 啊哈~<br />
+　　Finally done!（来自2023.8.26）</p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2023/08/25/2023-8-25/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+	
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Have a nice day~ ^_^</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<!--
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    -->
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/about">About</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2024 Qiaohan Chu (Johannah Chu) | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>

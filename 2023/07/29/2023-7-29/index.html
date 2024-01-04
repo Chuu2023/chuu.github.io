@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>2023.7.29 | Chuu&#39;s Blog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="Chuu&#39;s Blog" type="application/atom+xml">
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/" class="header__link">Home</a>
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/categories" class="header__link">Category</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/about" class="header__link">About</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Chuu&#39;s Blog</a></h1>
+		<h2 class="header__subtitle">“那不是我的月亮，但有一刻月光确实照在了我的身上。”</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>2023.7.29</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2023-07-29</span><br />
+		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/%EF%BC%88%E4%BA%89%E5%8F%96%EF%BC%89%E6%AF%8F%E6%97%A5%E4%B8%80%E8%81%8A/">（争取）每日一聊</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-none-link" href="/tags/%EF%BC%88%E5%81%8F%EF%BC%89%E7%A7%91%E7%A0%94/" rel="tag">（偏）科研</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p>  浅记一下最近学到的一些片面知识。很片面，非常片面，我甚至对P和NP并没有很具体的了解。其实与其说是学知识，不如说是总结了一个索引。<span id="more"></span><br />
+　　1. “black-box&quot;是指给定输入，得到输出，但是不知道内部构造。字面意义上的&quot;black-box construction&quot;应该可以理解为primitive A makes black-box use of primitive B. 比如，有时候用ZK，就是black-box use。（关于ZK，我了解的并不是很多，似乎有很多具体分类，argument（这个好像是什么计算意义下的），witness indistinguishable（好像就是顾名思义，witness indistinguishable），等等等等，一个很复杂的东西，还有什么public-coin？好了，晕了，我不列举了。）<br />
+　　在[AFRICACRYPT2012]Black-Box Reductions and Separations in Cryptography中，写到&quot;the reduction from the onewayness to the security of the underlying primitive treats both the adversary and the primitive as black-boxes, such that the overall constructions are also called fully black-box.” 这句话是放在<strong>Black-Box Constructions</strong> 这个标题下面的。结合上下文，看起来作者的归类是</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>black-box construction</mtext><mrow><mo fence="true">{</mo><mtable rowspacing="0.3599999999999999em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>1.</mn><mtext> black-box construction </mtext><menclose notation="horizontalstrike"><mrow><mi>w</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>t</mi><mtext> </mtext><mi>b</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>k</mi><mo>−</mo><mi>b</mi><mi>o</mi><mi>x</mi><mtext> </mtext><mi>r</mi><mi>e</mi><mi>d</mi><mi>u</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi></mrow></menclose><mtext> with black-box</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mspace width="1em"/><mtext>reduction of the primitive and non-black-box reduction of the adversary</mtext><mo separator="true">;</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>2.</mn><mtext> fully black-box</mtext><mo separator="true">;</mo></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">\text{black-box construction}\begin{cases}1.\ \text{black-box construction }\sout{without\ black-box\ reduction}\text{ with black-box}\\ \quad \text{reduction of the primitive and non-black-box reduction of the adversary};\\ 2.\ \text{fully black-box};
+\end{cases}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.32em;vertical-align:-1.9099999999999997em;"></span><span class="mord text"><span class="mord">black-box construction</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.35002em;"><span style="top:-2.19999em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎩</span></span></span><span style="top:-2.19499em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-2.20499em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-3.15001em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎨</span></span></span><span style="top:-4.2950099999999996em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-4.30501em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎪</span></span></span><span style="top:-4.60002em;"><span class="pstrut" style="height:3.15em;"></span><span class="delimsizinginner delim-size4"><span>⎧</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.8500199999999998em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.41em;"><span style="top:-4.41em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">1</span><span class="mord">.</span><span class="mspace"> </span><span class="mord text"><span class="mord">black-box construction </span></span><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mspace"> </span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">o</span><span class="mord mathnormal">x</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mord mathnormal">u</span><span class="mord mathnormal">c</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span></span></span><span style="top:-3.2155em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy sout"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.08333em;"><span></span></span></span></span></span><span class="mord text"><span class="mord"> with black-box</span></span></span></span><span style="top:-2.97em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mspace" style="margin-right:1em;"></span><span class="mord text"><span class="mord">reduction of the primitive and non-black-box reduction of the adversary</span></span><span class="mpunct">;</span></span></span><span style="top:-1.5300000000000002em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">2</span><span class="mord">.</span><span class="mspace"> </span><span class="mord text"><span class="mord">fully black-box</span></span><span class="mpunct">;</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.9099999999999997em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><code>注释</code>：原来这个latex的代码会报错啊。<br />
+  然后是&quot;black-box seperations&quot;. Roughly speaking, “black-box seperations&quot;似乎是指primitive A cannot make black-box use of primitive B with black-box reduction of primitive B and the adversary. 关于&quot;black-box seperations&quot;和&quot;black-box constructions&quot;的关系，<s>我不知道用什么词来形容，似乎“补集”是不太对的，不知道用“对偶 (dual)”这个词是否准确（好像也不太对）</s>  <s>应该只能说二者交集为空。</s> 应该看到底如何定义&quot;black-box constructions”，如果&quot;black-box constructions&quot;就是&quot;fully black-box&quot;，那么可以说&quot;black-box seperations&quot;与&quot;black-box constructions\fully black-box&quot;的交集为空；如果不止&quot;fully black-box&quot;，那么感觉&quot;black-box seperations&quot;与&quot;black-box constructions\fully black-box&quot;的交集好像可以不为空。每个集合内的元素都形如primitive pair，即 (primitive A, primitive B)。<s>啊，不知道对不对，先这样写吧。</s> 我觉得探讨&quot;black-box seperations&quot;和&quot;black-box constructions&quot;的关系（从集合角度）似乎是件没意义的事情，所以忽略以上。[AFRICACRYPT2012]Black-Box Reductions and Separations in Cryptography介绍了两种（应该是两种）“moving from relativizing reductions to fully black-box reductions&quot;的规约技术，分别为 (1) The Two-Oracle Technique by Hsiao and Reyzin; (2) The Meta-Reduction Technique. 具体表现在于，似乎这两种技术中，确实都是black-box的（好像一句废话。就是看上去都是只用到了输入输出，没有用到内部代码）。<s>再回顾一下&quot;black-box seperations&quot;和&quot;black-box constructions&quot;的关系，二者的交集有没有可能是&quot;black-box construction without black-box reduction&quot;呀？可能找答案得先从[STOC1989]Limits on the provable consequences of one-way permutations入手，但是先不必了。</s><br />
+　　2. “falsifiable assumption”，这里记录一个informal的定义吧：“Loosely speaking, an assumption is said to be falsifiable, if one can efficiently check whether an adversary is successful in breaking it.”——[TCC2016]Cryptographic Assumptions A Position Paper.<br />
+　　3. 还有个网站<a target="_blank" rel="noopener" href="https://www.docin.com/p-985405684.html">https://www.docin.com/p-985405684.html</a><br />
+　　4. 似乎&quot;reduce primitive A to primitive B is impossible&quot;中的&quot;impossible&quot;指的是&quot;equivalent to proving the relation of P and NP”?<br />
+||<em>更新</em>：<br />
+  5. 上述关于 <em>&quot;black-box constructions&quot;的分类好像有点不正确</em> ，但似乎可以确定的是，起码Minicrypt，Cryptomania，Obfustopia这三个worlds中都只包括&quot;fully black-box&quot;（也不确定，都是我自己瞎看的）。<br />
+　　6. 有点好奇，如果&quot;impossible&quot;指的是&quot;equivalent to proving the relation of P and NP&quot;，那么基于one-way functions构造secure key agreement这件事是卡在字面意义上的&quot;construction&quot;上了呢？还是卡在&quot;reduction&quot;上了？如果是卡在&quot;reduction&quot;上，研究这个&quot;reduction&quot;会不会对P和NP的关系有帮助？<br />
+　　7. 可以忽略上面的胡言乱语。<br />
+||<em>更新结束</em>。</p>
+<p>  很难。但是既然读了这篇文章，简单写一下吧。明天正好把这段复制到周报里🤭。</p>
+<p>  一个生活碎片：我已经累计两次在晚上吃完哥老官之后睡觉睡得难受了（一晚上醒好几次），我真的有点怀疑哥老官食品有问题了。下次中午吃。<br />
+　　今日歌曲分享：</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=30431367&auto=1&height=66"></iframe>
+	
+
+	
+		<span class="different-posts"><a href="/2023/07/29/2023-7-29/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+	
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Have a nice day~ ^_^</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<!--
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    -->
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/about">About</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2024 Qiaohan Chu (Johannah Chu) | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>

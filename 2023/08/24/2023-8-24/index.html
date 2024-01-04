@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>2023.8.24 | Chuu&#39;s Blog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="Chuu&#39;s Blog" type="application/atom+xml">
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/" class="header__link">Home</a>
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/categories" class="header__link">Category</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/about" class="header__link">About</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Chuu&#39;s Blog</a></h1>
+		<h2 class="header__subtitle">“那不是我的月亮，但有一刻月光确实照在了我的身上。”</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>2023.8.24</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2023-08-24</span><br />
+		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/%EF%BC%88%E4%BA%89%E5%8F%96%EF%BC%89%E6%AF%8F%E6%97%A5%E4%B8%80%E8%81%8A/">（争取）每日一聊</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-none-link" href="/tags/%EF%BC%88%E5%81%8F%EF%BC%89%E7%A7%91%E7%A0%94/" rel="tag">（偏）科研</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p>  对于“重复实验”的一些理解。<span id="more"></span>有的时候会看到&quot;repeated experiments&quot;的字样，那么这个东西是做什么用的呢？今天我来简述一下我的理解。我的理解（只）基于两个例子。</p>
+<ol>
+<li>[STOC2005]On lattices, learning with errors, random linear codes, and cryptography中第一页1. INTRODUCTION这节中的第二段有一句&quot;However, a standard calculation shows that this guess is correct with probability <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>+</mo><msup><mn>2</mn><mrow><mo>−</mo><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\frac{1}{2}+2^{-\Theta(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">Θ</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>. Hence, in order to obtain the first bit with good confidence, we have to <strong>repeat</strong> the whole procedure <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">2^{\Theta(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">Θ</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span> times.&quot; 我觉得这里的&quot;repeat&quot;的目的是“从概率返回到频率统计”。具体来讲，假设第一个bit是1，由于<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mo>−</mo><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">2^{-\Theta(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">Θ</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>非常小，如果只重复两次试验，很有可能输出两次0。为了尽可能地得出正确的the first bit，重复<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">2^{\Theta(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">Θ</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>次，然后在输出结果中比较1和0的数量。从<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>+</mo><msup><mn>2</mn><mrow><mo>−</mo><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\frac{1}{2}+2^{-\Theta(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">Θ</span><span class="mopen mtight">(</span><span class="mord mathnormal mtight">n</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span>这个概率是怎么得来的角度来讲，理论上1的数量应该大于0的数量，那么因为1的数量大于0的数量，所以判定the first bit是1。</li>
+<li><u>Foundations of cryptography：Basic Tools</u>第十四页的<b>Analysis.</b>中最后一句话写道&quot;The error probability can be further reduced by invoking the algorithm several times (using fresh random choices in each try).&quot; 我觉得这里的&quot;repeat&quot;的目的是“从概率到概率”。具体来讲，首先要确定算法结果的确定标准，我认为对于这个算法的确定标准是“只要有一次结果是accept，那么这个图就是连通的”，因此&quot;repeat&quot;的目标是尽可能扩大事件<i>至少有一次结果是accept</i>的概率，看到了“至少”二字，就会想到其对立事件，那么目标转化成了尽可能缩小事件<i>结果全为reject</i>的概率。因此，由独立重复（伯努利）实验，可理论推得，实验次数越多，事件<i>结果全为reject</i>的概率越小。</li>
+</ol>
+<p>  博一的时候读过一次<u>Foundations of cryptography</u>，那时候觉得这是天书。我真的认真读了，看不懂的地方都注释了一些可能正确的理解（以至于书中几乎处处被注释了）。今天因为要学习零知识证明所以回顾（应该说重新学）了下这本书，我觉得真的写得很好（暗示着我觉得我能读懂一些东西了）。好的书就是，从每一个单词中（甚至对于英文来说，可数名词后面加不加&quot;s&quot;）都能读出作者的心血。<br />
+　　<u>The Theory Of Hash Functions And Random Oracle</u>这本书年份更新一点，我感觉也很好。<br />
+　　其实感觉上面两本书都不适合（新手）直接理解。（我认为）正确的读法应该是，作为一个新手，先大致读一下框架，不懂的地方先放着（约等于没读），然后去读论文，然后尝试写论文，然后纠错，然后再读论文，再写论文，再纠错，重复几个过程，再去读上述两本书，或许就可以对一些概念有深入的理解了。</p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2023/08/24/2023-8-24/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+	
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Have a nice day~ ^_^</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<!--
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    -->
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/about">About</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2024 Qiaohan Chu (Johannah Chu) | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>

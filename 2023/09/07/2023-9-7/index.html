@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>零知识证明 | Chuu&#39;s Blog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="Chuu&#39;s Blog" type="application/atom+xml">
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/" class="header__link">Home</a>
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/categories" class="header__link">Category</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/about" class="header__link">About</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Chuu&#39;s Blog</a></h1>
+		<h2 class="header__subtitle">“那不是我的月亮，但有一刻月光确实照在了我的身上。”</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>零知识证明</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2023-09-07</span><br />
+		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/%EF%BC%88%E4%BA%89%E5%8F%96%EF%BC%89%E6%AF%8F%E6%97%A5%E4%B8%80%E8%81%8A/">（争取）每日一聊</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-none-link" href="/tags/%EF%BC%88%E5%81%8F%EF%BC%89%E7%A7%91%E7%A0%94/" rel="tag">（偏）科研</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p>  现在是10:18，开整！<span id="more"></span></p>
+<ul>
+<li>proof的服务对象是statement，即a string x<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∈</mo></mrow><annotation encoding="application/x-tex">\in</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">∈</span></span></span></span>language L，verifier需要在给定proof的条件下自己判定statement是不是对的（自己判定一个decision problem）。根据decision problems的分类，在假设verifier是PPT的条件下，对于在BPP class中的decision problems，verifier可以在不借助proof的条件下对statement进行判定，这种“虚空”的proofs被分类为non-interactive (or, static) proofs；而对于BPP class之外的decision problems，即verifier需要借助“真实”的proof才能判定statement，其对应的这种“真实”的proofs被分类为interactive proofs。<u>Concurrent Zero Knowledge</u>中提到，我们主要关心的是interactive proofs。BPP之外的decision problems具体是指PSAPCE\BPP中的decision problems，详见<u>Foundations of cryptography</u>4.2.3.*节。关于PSPACE，可参考<a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/nl-completeness-and-pspace-completeness/">https://www.geeksforgeeks.org/nl-completeness-and-pspace-completeness/</a></li>
+<li>对于interactive proofs，定义了interactive proof systems，详见<u>Concurrent Zero Knowledge</u>第五页的Definition 1.1.1。注意到，对于interactive proof systems来说，prover是computationally unbounded，verifier是PPT。除了interactive proof systems还有argument systems，在argument systems中，考虑soundness时，prover是 (P) PT，verifier还是PPT。这一改变主要体现了——在interactive proof systems中，prover可以尝试<em>任何可能</em>的方法去fool verifier，而在argument systems中，prover只能尝试<em>可以被实现</em>的方法去fool verifier。直观来看，argument systems更不“靠谱”一些。相较于interactive proof systems，argument systems的优势在于&quot;argument systems may be more efficient than interactive proofs&quot;。文中提到&quot;The class of problems having interactive proof systems is denoted IP.&quot;，所以，interactive proof systems不是decision problems，IP也并不代表interactive proof systems。</li>
+<li>关于public-coin proof systems，<u>Concurrent Zero Knowledge</u>中给出了相关描述&quot;a special case of interactive proofs in which the verifier must send the outcome of any coin it tosses (and thus need not send any other information)“。我理解的是，公开了coins，那么coins就得是随机的（因为就是这样要求的），verifier就不能偷偷地问一些tricky的问题了。然后书中又写道&quot;Thus, in the context of interactive proof systems, asking random questions is as powerful as asking ‘tricky’ questions. (As we shall see, this does not necessarily hold in the context of zero-knowledge proofs.)”。</li>
+<li>上述只对proof展开了描述，<strong>零知识证明</strong>的重点当然还是<b>零知识 (zero-knowledge) </b>啦。zero-knowledge是prover strategies的一个性质，要求verifier在与prover交互的过程中得到的信息不能比从statement中得到的信息多（🤔似乎不是病句）。注意到“在与prover交互的过程中得到的信息”比“从proof中得到的信息”包含范围更广一些（我觉得）。证明一个interactive proof systems是zero-knowledge的也是遵从simulation paradigm，具体是证明real world中的ensembles和ideal world中的ensembles不可区分，其中，real world中，verifier输入statement并与prover交互，ideal world中，verifier只输入statement并不与prover交互，详见<u>Concurrent Zero Knowledge</u>第十页的定义。由于zero-knowledge proofs经常被用作大协议中的一个子协议，而在这样的场景下，verifier一般都会有一些额外的信息，所以此时，在real world和ideal world中，verifier都会额外输入额外的信息，详见<u>Concurrent Zero Knowledge</u>第十页最后的Definition 1.2.1, auxiliary-input zero-knowledge。</li>
+<li>关于black-box simulation。证明过程中simulator如何访问adversary，adversary如何访问simulator，理论上都是可以进一步分类的。black-box simulation，我理解的是，上述两种访问全都是black-box的形式。non-black-box simulation就是两种访问不全是black-box的形式。我觉得，好像一般公钥加密的证明中就是black-box simulation（不知道对不对）。</li>
+<li>honest verifier似乎也是一个有很多事的东西，但是书中没仔细讲，只是大概讲了一下什么是honest verifier。“verifier may maintain (and output) a record of the entire interaction (i.e., even if directed to erase all records of the interaction).”。</li>
+</ul>
+</p><font color="#00dddd">break</font>
+<ul>
+<li>关于zero-knowledge proofs存在性的问题，书中写道&quot;We mention that under the same assumption used in the case of NP, it holds that any set that has an interactive proof also has a zero-knowledge interactive proof.&quot; 详见1.3节，而且关于zero-knowledge proofs for NP-set的存在性的证明是构造性 (constructive) 的（好像是的）。还有一句是关于round complexity的，“We mention that, under standard intractability assumptions (e.g., the intractability of factoring), constant-round zero-knowledge proofs (of negligible soundness error) exist for every set in NP.”</li>
+<li>关于zero-knowledge proofs protocol的composition。composition的方式有sequential, parallel, concurrent。结论有
+<ol>
+<li>“Every protocol that is zero-knowledge (under Definition 1.2.1) is sequential-zero-knowledge.”，其中Definition 1.2.1是带auxiliary input的定义。</li>
+<li>“It turns out that, in general, zero-knowledge is not closed under parallel composition.” 以及 “Although, in general, zero-knowledge is not closed under parallel composition, under standard intractability assumptions (e.g., the intractability of factoring), there exist zero-knowledge protocols for NP that are closed under parallel composition. Furthermore, these protocols have a <em>constant number of rounds</em>.” 以及 “Under standard intractability assumptions, every NP-set has a <em>constant-round</em> parallel-zero-knowledge proof.”</li>
+<li>“Thus, it is currently unknown whether or not <em>constant-round</em> protocols for NP may be concurrent zero-knowledge (in the pure asynchronous model).” 以及 “Specifically, using standard intractability assumptions, <em>constant-round</em> arguments and proofs that are con current zero-knowledge under the timing model do exist.” 以及 “Consequently, proving that the protocol is parallel zero-knowledge suffices for concurrent composition in this setting (an asynchronous model with timing).”</li>
+<li>“Specifically, ‘resettable zero-knowledge’ as defined in Sect. 9.6, implies concurrent zero-knowledge.”</li>
+</ol>
+</li>
+<li>还有关于证明这件事，请读[FOCS2001]Universally Composable Security。感觉是给“组合安全”定义了一个非常通用的框架，但是具体细节没懂，主要是&quot;The theorem guarantees that any such coordinated attack can be translated to an attack against the ‘high-level part of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi></mrow><annotation encoding="application/x-tex">\rho</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">ρ</span></span></span></span>’ plus a set of attacks, where each such attack operates separately against a single session of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">F</mi></mrow><annotation encoding="application/x-tex">\mathcal{F}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.09931em;">F</span></span></span></span></span>.&quot; 这步是怎么做到的？</li>
+</ul>
+
+	
+
+	
+		<span class="different-posts"><a href="/2023/09/07/2023-9-7/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+	
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Have a nice day~ ^_^</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<!--
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    -->
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/about">About</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2024 Qiaohan Chu (Johannah Chu) | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>

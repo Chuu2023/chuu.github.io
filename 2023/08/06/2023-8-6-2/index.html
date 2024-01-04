@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#33474d">
+	<title>2023.8.6(2) | Chuu&#39;s Blog</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	
+      <link rel="alternate" href="/atom.xml" title="Chuu&#39;s Blog" type="application/atom+xml">
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+	<header class="header">
+		<nav class="header__nav">
+			
+				<a href="/" class="header__link">Home</a>
+			
+				<a href="/archives" class="header__link">Archive</a>
+			
+				<a href="/categories" class="header__link">Category</a>
+			
+				<a href="/tags" class="header__link">Tags</a>
+			
+				<a href="/about" class="header__link">About</a>
+			
+		</nav>
+		<h1 class="header__title"><a href="/">Chuu&#39;s Blog</a></h1>
+		<h2 class="header__subtitle">“那不是我的月亮，但有一刻月光确实照在了我的身上。”</h2>
+	</header>
+
+	<main>
+		<article>
+	
+		<h1>2023.8.6(2)</h1>
+	
+	<div class="article__infos">
+		<span class="article__date">2023-08-06</span><br />
+		
+			<span class="article__category">
+				<a class="article-category-link" href="/categories/%EF%BC%88%E4%BA%89%E5%8F%96%EF%BC%89%E6%AF%8F%E6%97%A5%E4%B8%80%E8%81%8A/">（争取）每日一聊</a>
+			</span><br />
+		
+		
+			<span class="article__tags">
+			  	<a class="article__tag-none-link" href="/tags/%EF%BC%88%E5%81%8F%EF%BC%89%E7%A7%91%E7%A0%94/" rel="tag">（偏）科研</a>
+			</span>
+		
+	</div>
+
+	
+
+	
+		<p>  论文读完了，我自己给这周的科研画个句号。那么如果白天一定要做点什么事情的话，就把周报搬上来吧。<span id="more"></span><br />
+　　阅读的论文是 <a target="_blank" rel="noopener" href="https://eprint.iacr.org/2023/812.pdf">[CRYPTO2023]full version How to Use (Plain) Witness Encryption Registered ABE, Flexible Broadcast, and More</a>。<br />
+　　<em>以下都是个人观点。如果某个观点不对的话，请kindly忽略。</em>||似乎设置了一个很“强”的假设，假设每位读者都具有很多非常“好”的性质，尤其具有自动忽略写得不好的段落的功能。<br />
+　　我认为本文的动机 (motivation) 可以分为两个层次，“根本动机”和“直接动机”。</p>
+<ul>
+<li>
+<p>根本动机：</p>
+<ol>
+<li>“WE is a cryptographic notion that is often considered alongside iO”. 因为iO是目前的一个热点，而WE又总是和iO“在一起”，所以研究WE也是有必要的。</li>
+<li>“iO has yielded solutions to a broad range of cryptographic problems”. 这会引出一个问题：WE的情况是怎样的呢？</li>
+<li>“Compared to iO, there has been significantly less success in leveraging WE to realize other cryptographic notions”. 这句回答了2的问题。并且这句表明了WE还有很大的空白等待我们去探索。</li>
+<li>“Many of the notions implied by WE can be achieved directly from standard number-theoretic or lattice-based assumptions”. 如果我们能基于WE构造更多的“先进”密码学原语方案，那么我们或许有更大的可能性得到基于标准假设的“先进”密码学原语方案的构造。</li>
+<li>“These works give a direct construction of witness encryption that is significantly more efficient than existing iO approaches. Moreover, the current techniques do not seem to extend to give iO”. 基于WE构造的“先进”密码学原语方案可能会enjoy更高的效率，以及，我们或许会得到一些不能基于iO的“先进”密码学原语方案的构造。</li>
+</ol>
+</li>
+<li>
+<p>直接动机：</p>
+<ol>
+<li>“Previous approaches to use WE for realizing new cryptographic primitives have focused on augmenting witness encryption with additional properties such as “position-hiding”, or “extractability””. 尝试基于plain WE构造一些“先进”密码学原语方案。</li>
+</ol>
+</li>
+<li>
+<p>文中构造的“先进”密码学原语方案是flexible BE和RABE for general policies。其中，flexible BE是这篇文章对distributed BE的gneralization，之前（唯一）的distributed BE方案是基于iO的；RABE for general policies目前也只有基于iO的构造。</p>
+</li>
+<li>
+<p>技术总览：主要是关于如何基于plain WE构造flexible BE的。</p>
+<ul>
+<li>虽然flexible BE是这篇文章新提炼的一个概念，但是文中说可以用基于iO构造RABE的技术构造基于iO的flexible BE。其大致路线为：iO+SSB (Somwhere Statistically Binding Hash Function)。</li>
+<li>把iO替换为WE。但是，由于iO和WE的安全性定义不同，所以在证明flexible BE的时候会遇到问题：如果沿用SSB的话，对于WE来说，需要SSB binds all the indexes。但是这个要求违背了SSB的motivation和syntax。为了解决这个问题，本文提出了Function Binding Hash Function (FB) 这个概念。
+<ul>
+<li>从某个刁钻的角度上理解FB的提出：<u>因为SSB和FB这种概念的最根本的核心之一是“压缩”，所以bind的东西本质上得是某个&quot;index&quot;。</u> <strong>这句话我认为得结合本文的具体用法来考虑，因为我突然注意到FB的open算法的输出大小是和输入的集合S有关的，当S为全集时，这个S其实可以看做整个FB输入数据的长度，那这样的话open的输出大小就不&quot;short&quot;了（应该不&quot;short&quot;了吧）。这样来看，FB可能得“特别”应用才有意义（这句我瞎说的，不对的话等我反应过来我就删了）。</strong> SSB bind的是输入数据的某个index，其functionality大致是“只要这个index上的数据是对的，那么hash值就是对的”。FB虽然bind的是一个函数，但是它的functionality可以理解为“如果某个index上的数据是错的，那么hash值就是错的”。FB的functionality有点像SSB的functionality的否命题，但是保留了“某个”，即“存在”，这就允许bind &quot;index&quot;了。<s>Overall，重点是保留bind &quot;index&quot;的性质，基于此，可以通过更改命题（注意并没有要求两个命题之间有什么逻辑联系，比如什么如果原命题是对的，那么否命题也得是对的之类的），然后据此（根据SSB的构造）得到一个可能的构造（FB的构造）。</s>&quot;Overall…&quot;这句根本是在瞎bb。</li>
+<li>对于FB的提出更直观的理解：想用SSB，但是发现使用过程中有瑕疵，于是就盯着SSB的构造，发现在本文中，输入给SSB的数据是LHE (Leveled Homomorphic Encryption) 的密文，密文还对应着明文，而要求是限制在明文上的（并且注意到这个对于明文的要求正好是或函数，符合“如果某个index上的数据是错的，那么hash值就是错的”这个否命题的含义），所以就“基于SSB的构造构造出了一个FB for disjunction function的FB了”。</li>
+<li>对于本文FB的构造，我认为有一个可能比较重要的点是，LHE的Eval算法是确定性的，所以才能正确“验证”。（这句话不知道对不对，因为我也没仔细读）。</li>
+</ul>
+</li>
+<li>SSB和FB的对比：<br />
+a. SSB形式上bind是输入数据的某个index，FB形式上bind是某个函数。具体体现在：syntax中，SSB的setup算法输入中有一个是&quot;i&quot;，即index，FB的setup算法输入中对应的位置是&quot;f&quot;，即函数。同时，在安全性上，SSB的index hiding也被替换为了function hiding。<br />
+b. open算法（生成proof的算法）中，SSB输入的是某个index，FB输入的是一个index集合（可以是全集）。<br />
+c. 本文的FB的构造是根据之前的[HW15]的SSB构造改的。<br />
+d. SSB和FB的hash算法的输出大小都与输入数据长度无关。</li>
+<li>本文的WE+FB的组合eliminates the need for a step-by-step hybrid strategy，相较于iO+SSB的组合。这一点可能有利于研究紧归约 (“theoreticians happy” &gt;_&lt;) 。</li>
+</ul>
+</li>
+</ul>
+<p><code>注释</code>：</p>
+<ol>
+<li>关于为什么有的名词全称在括号前面，而有的名词全称在括号内：写在括号前面的名词全称表示“是论文中新提出的名词”，写在括号内的名词全称表示“解释一下括号前面的缩写”。</li>
+<li>关于&quot;index&quot;的复数形式：一开始我也以为应该是写成&quot;indices&quot;的，但是有一次我在读一篇“名作”时发现作者把&quot;index&quot;的复数写成了&quot;indexes&quot;，我当时稍稍有些诧异，于是我去百度了一下（是不是觉得百度不太靠谱，所以我总百度似乎不是一个好习惯😁），发现上面写着“当它表示’指数’时，复数形式既可以是indexes，也可以是indices。index表示其他意思（如’索引’）的时候，复数形式为indexes”。啊哈~又恶补了一个小知识。</li>
+</ol>
+<p>  <u>突然想起来的生活碎片</u>：前几天在宿舍走廊看见了一颗小强，我动了一下之后它就跑了，而且跑得飞快，我甚至怀疑它可能在飞。不过它怕我干嘛呢，它是真的低估了自己的生命值，同时高估了我的战斗力。</p>
+<p>  ||<em>更新</em>：<s>不知道为什么网页上显示不出来无序列表，我百度上看到的都是说用&quot;+/*/-&quot;就可以。我觉得这是个比较深层次的问题，我处理不了，所以我用**·**来代替那个圆点了。</s><br />
+  ||<em>更新2023.8.7</em>：原来是因为&quot;+/*/-&quot;前面不能加空格T_T。把空格删去了之后Tab也有效了T_T。</p>
+
+	
+
+	
+		<span class="different-posts"><a href="/2023/08/06/2023-8-6-2/" onclick="window.history.go(-1); return false;">⬅️ Go back </a></span>
+
+	
+	
+	
+
+</article>
+
+	</main>
+
+	<footer class="footer">
+	<div class="footer-content">
+		
+	      <div class="footer__element">
+	<p>Have a nice day~ ^_^</p>
+</div>
+
+	    
+	      <div class="footer__element">
+	<h5>Check out</h5>
+	<ul class="footer-links">
+		<li class="footer-links__link"><a href="/archives">Archive</a></li>
+		<!--
+		  <li class="footer-links__link"><a href="/atom.xml">RSS</a></li>
+	    -->
+		<li class="footer-links__link"><a href="/categories">Categories</a></li>
+		<li class="footer-links__link"><a href="/tags">Tags</a></li>
+		<li class="footer-links__link"><a href="/about">About</a></li>
+	</ul>
+</div>
+
+	    
+
+		<div class="footer-credit">
+			<span>© 2024 Qiaohan Chu (Johannah Chu) | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/HoverBaum/meilidu-hexo">MeiliDu</a></span>
+		</div>
+
+	</div>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
