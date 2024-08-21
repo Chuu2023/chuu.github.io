@@ -54,8 +54,9 @@
 	
 
 	
-		<p>写了一下午加一晚上（准确来说应该是下午5点-下午7点，然后晚上11点到现在）的低级的代码。<span id="more"></span>高端与低级，对比如下：</p>
+		<p>  写了一下午加一晚上（准确来说应该是下午5点-下午7点，然后晚上11点到现在）的低级的代码。<span id="more"></span>高端与低级，对比如下：</p>
 <p>标准答案：<br />
+·<br />
 class Solution {<br />
 public:<br />
 int lengthOfLongestSubstring(string s) {<br />
@@ -81,57 +82,13 @@ ans = max(ans, rk - i + 1);<br />
 return ans;<br />
 }<br />
 };<br />
+`<br />
 作者：力扣官方题解<br />
 链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/solutions/227999/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetc-2/">https://leetcode.cn/problems/longest-substring-without-repeating-characters/solutions/227999/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetc-2/</a><br />
 来源：力扣（LeetCode）<br />
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 <p>我的：<br />
-class Solution {<br />
-public:<br />
-int lengthOfLongestSubstring(string s) {<br />
-string r;<br />
-vector<int> a;<br />
-int b;<br />
-if (s==“”){<br />
-return 0;<br />
-}<br />
-if (s.size()<mark>1){<br />
-return 1;<br />
-}<br />
-else{<br />
-r=s[0];<br />
-for (int i=1; i&lt;s.size(); i++){<br />
-b=1;<br />
-for (int j=0; j&lt;r.size(); j++){<br />
-if (r[j]<mark>s[i]&amp;&amp;j!=r.size()-1){<br />
-b=0;<br />
-a.push_back(r.size());<br />
-r=r.substr(j+1,r.size()-j-1)+s[i];<br />
-break;<br />
-}<br />
-if (r[j]<mark>s[i]&amp;&amp;j</mark>r.size()-1){<br />
-b=0;<br />
-a.push_back(r.size());<br />
-r=s[i];<br />
-break;<br />
-}<br />
-else {<br />
-continue;<br />
-}<br />
-}<br />
-if (b</mark>1&amp;&amp;i!=s.size()-1){<br />
-r=r+s[i];<br />
-}<br />
-if (b</mark>1&amp;&amp;i==s.size()-1){<br />
-r=r+s[i];<br />
-a.push_back(r.size());<br />
-}<br />
-}<br />
-sort(a.begin(), a.end(), greater<int>());<br />
-return a[0];<br />
-}<br />
-}<br />
-};<br />
+<code>class Solution &#123; public:     int lengthOfLongestSubstring(string s) &#123;         string r;         vector&lt;int&gt; a;         int b;         if (s==&quot;&quot;)&#123;             return 0;         &#125;         if (s.size() == 1)&#123;             return 1;         &#125;         else&#123;             r=s[0];             for (int i=1; i&lt;s.size(); i++)&#123;                 b=1;                 for (int j=0; j&lt;r.size(); j++)&#123;                     if (r[j]==s[i]&amp;&amp;j!=r.size()-1)&#123;                         b=0;                         a.push_back(r.size());                         r=r.substr(j+1,r.size()-j-1)+s[i];                         break;                     &#125;                     if (r[j]==s[i]&amp;&amp;j==r.size()-1)&#123;                         b=0;                         a.push_back(r.size());                         r=s[i];                         break;                     &#125;                     else &#123;                         continue;                     &#125;                 &#125;                 if (b == 1&amp;&amp;i!=s.size()-1)&#123;                     r=r+s[i];                 &#125;                 if (b == 1&amp;&amp;i==s.size()-1)&#123;                     r=r+s[i];                     a.push_back(r.size());                 &#125;             &#125;             sort(a.begin(), a.end(), greater&lt;int&gt;());             return a[0];         &#125;     &#125; &#125;;</code><br />
 　　之所以低级，因为我只会for和if🥹。</p>
 
 	
